@@ -93,7 +93,7 @@ HERE;
 <!-- 		<li><a href="../election/election_documents.php"><strong>Candidate Documents</strong></a></li>  -->
 <!-- 		<li><a href="https://docs.google.com/document/d/1TP5goDQeJ1hpN6Z9H2wlY6DAevSg_3r2_hMZnui6f6k/edit?usp=sharing"><strong>A-Board Applications</strong></a></li> -->
 		<!--Always Keep-->
-		</b><li><a href="https://docs.google.com/spreadsheets/d/1TG97SIIQFumIAWo5SEQAretQbvu1ahjOHoHLSt5_pTA/edit#gid=0">Master Doc</a></li>
+<!-- 		</b><li><a href="https://docs.google.com/spreadsheets/d/1TG97SIIQFumIAWo5SEQAretQbvu1ahjOHoHLSt5_pTA/edit#gid=0">Master Doc</a></li> -->
 		<li><a href="../information/finance.php">Finance</a></li>
 		<!--<li><a href="https://drive.google.com/file/d/0B2ce5YDkshNjQzVwMGFWQURkVF9telZiNzJoaGpvT05kU0Mw/view?usp=sharing">Intern Application</a></li>-->	
 		<li><a href="../information/announcements.php">Announcements</a></li>
