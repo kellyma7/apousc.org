@@ -112,14 +112,14 @@ else {
 	echo "<li><strong>Status</strong>: " . $memberStatus[$req_user_info['status']] . "</li>\n";
 // Comment out until pledges get families
 
-	echo "<li><strong>Family</strong>: ";
-	if ($req_user_info['family'] !== NULL && is_numeric($req_user_info['family'])) {
-		echo $families[$req_user_info['family']];
-	} //$req_user_info['family'] !== NULL && is_numeric($req_user_info['family'])
-	else {
-		echo "Unknown";
-	}
-	echo "</li>\n";
+// 	echo "<li><strong>Family</strong>: ";
+// 	if ($req_user_info['family'] !== NULL && is_numeric($req_user_info['family'])) {
+// 		echo $families[$req_user_info['family']];
+// 	} //$req_user_info['family'] !== NULL && is_numeric($req_user_info['family'])
+// 	else {
+// 		echo "Unknown";
+// 	}
+// 	echo "</li>\n";
 	
 	// end comment  about families
 
@@ -166,185 +166,187 @@ else {
 	echo "</ul>\n";
 //commented out until pledges get bigs
 
-	echo "<h3>Family Line</h3>\n";
-	$username = $req_user_info['username'];
-	echo "<li><a href='../rosters/family_tree.php?user=$username'><strong>Family Tree</strong></a></li>";
+// 	echo "<h3>Family Line</h3>\n";
+// 	$username = $req_user_info['username'];
+// 	echo "<li><a href='../rosters/family_tree.php?user=$username'><strong>Family Tree</strong></a></li>";
 
-	$q       = "SELECT U.fname, U.lname, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $req_user_info['big'] . "'";
-	$result  = $database->query($q);
-	$bigName = mysql_fetch_array($result);
-	echo "<li><strong>Big</strong>: ";
-		if($bigName){
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $req_user_info['big'] . "\">" . $bigName['fname'] . " " . $bigName['lname'] ."</a>";
-	} else {
-		echo "Unknown";
-	}
-	echo "</li>\n";};
-
-
+// 	$q       = "SELECT U.fname, U.lname, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $req_user_info['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$bigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Big</strong>: ";
+// 		if($bigName){
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $req_user_info['big'] . "\">" . $bigName['fname'] . " " . $bigName['lname'] ."</a>";
+// 	} else {
+// 		echo "Unknown";
+// 	}
+// 	echo "</li>\n";};
 
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $bigName['big'] . "'";
-	$result  = $database->query($q);
-	$gBigName = mysql_fetch_array($result);
-	echo "<li><strong>Grand Big</strong>: ";
+
+
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $bigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$gBigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Grand Big</strong>: ";
 	
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($bigName['big'])) {
-		echo "<a href=\"?user=" . $gBigName['username'] . "\">" . $gBigName['fname'] . " " . $gBigName['lname'] . "</a>";
-	} else {
-		echo "Unknown";
-	}
-	echo "</li>\n";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($bigName['big'])) {
+// 		echo "<a href=\"?user=" . $gBigName['username'] . "\">" . $gBigName['fname'] . " " . $gBigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unknown";
+// 	}
+// 	echo "</li>\n";
 
 
-		$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $gBigName['big'] . "'";
-	$result  = $database->query($q);
-	$ggBigName = mysql_fetch_array($result);
+// 		$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $gBigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$ggBigName = mysql_fetch_array($result);
 	
-	echo "<li><strong>Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $ggBigName['username'] . "\">" . $ggBigName['fname'] . " " . $ggBigName['lname'] . "</a>";
-	} else {
-		echo "Unknown";
-	}
-	echo "</li>\n";
+// 	echo "<li><strong>Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $ggBigName['username'] . "\">" . $ggBigName['fname'] . " " . $ggBigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unknown";
+// 	}
+// 	echo "</li>\n";
 
-echo "<div class=\"slide2\" style=\"cursor: pointer;\"><p><strong>Extended History</strong> (Click to Show)</p></div>
-	<div class=\"view2\">";
+// echo "<div class=\"slide2\" style=\"cursor: pointer;\"><p><strong>Extended History</strong> (Click to Show)</p></div>
+// 	<div class=\"view2\">";
 	
-			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $ggBigName['big'] . "'";
-	$result  = $database->query($q);
-	$gggBigName = mysql_fetch_array($result);
+// 			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $ggBigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$gggBigName = mysql_fetch_array($result);
 	
-	echo "<li><strong>Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $gggBigName['username'] . "\">" . $gggBigName['fname'] . " " . $gggBigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	echo "<li><strong>Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $gggBigName['username'] . "\">" . $gggBigName['fname'] . " " . $gggBigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $gggBigName['big'] . "'";
-	$result  = $database->query($q);
-	$ggggBigName = mysql_fetch_array($result);
+// 			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $gggBigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$ggggBigName = mysql_fetch_array($result);
 
-	echo "<li><strong>Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $ggggBigName['username'] . "\">" . $ggggBigName['fname'] . " " . $ggggBigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	echo "<li><strong>Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $ggggBigName['username'] . "\">" . $ggggBigName['fname'] . " " . $ggggBigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $ggggBigName['big'] . "'";
-	$result  = $database->query($q);
-	$g4gBigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g4gBigName['username'] . "\">" . $g4gBigName['fname'] . " " . $g4gBigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 			$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $ggggBigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g4gBigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g4gBigName['username'] . "\">" . $g4gBigName['fname'] . " " . $g4gBigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g4gBigName['big'] . "'";
-	$result  = $database->query($q);
-	$g6BigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g6BigName['username'] . "\">" . $g6BigName['fname'] . " " . $g6BigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g4gBigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g6BigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g6BigName['username'] . "\">" . $g6BigName['fname'] . " " . $g6BigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g6BigName['big'] . "'";
-	$result  = $database->query($q);
-	$g7BigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Great-Grand-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g7BigName['username'] . "\">" . $g7BigName['fname'] . " " . $g7BigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g6BigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g7BigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Great-Grand-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g7BigName['username'] . "\">" . $g7BigName['fname'] . " " . $g7BigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g7BigName['big'] . "'";
-	$result  = $database->query($q);
-	$g8BigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g8BigName['username'] . "\">" . $g8BigName['fname'] . " " . $g8BigName['lname'] . "</a>";
-	} else {
-		echo "Unknown";
-	}
-	echo "</li>\n";
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g7BigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g8BigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g8BigName['username'] . "\">" . $g8BigName['fname'] . " " . $g8BigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unknown";
+// 	}
+// 	echo "</li>\n";
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g8BigName['big'] . "'";
-	$result  = $database->query($q);
-	$g9BigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g9BigName['username'] . "\">" . $g9BigName['fname'] . " " . $g9BigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g8BigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g9BigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g9BigName['username'] . "\">" . $g9BigName['fname'] . " " . $g9BigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g9BigName['big'] . "'";
-	$result  = $database->query($q);
-	$g10BigName = mysql_fetch_array($result);
-	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
-	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
-		echo $req_transfer_info["big"];
-	} else if ($database->usernameTaken($req_user_info['big'])) {
-		echo "<a href=\"?user=" . $g10BigName['username'] . "\">" . $g10BigName['fname'] . " " . $g10BigName['lname'] . "</a>";
-	} else {
-		echo "Unkown";
-	}
-	echo "</li>\n";
+// 	$q       = "SELECT U.fname, U.lname, U.username, U.big FROM `" . TBL_USERS . "` AS U WHERE U.username = '" . $g9BigName['big'] . "'";
+// 	$result  = $database->query($q);
+// 	$g10BigName = mysql_fetch_array($result);
+// 	echo "<li><strong>Great-Great-Great-Great-Great-Great-Great-Great-Great-Grand Big</strong>: ";
+// 	if ($isTransfer && array_key_exists("big",$req_transfer_info)) {
+// 		echo $req_transfer_info["big"];
+// 	} else if ($database->usernameTaken($req_user_info['big'])) {
+// 		echo "<a href=\"?user=" . $g10BigName['username'] . "\">" . $g10BigName['fname'] . " " . $g10BigName['lname'] . "</a>";
+// 	} else {
+// 		echo "Unkown";
+// 	}
+// 	echo "</li>\n";
 
-echo "</div>";
+// echo "</div>";
 
 
 
-	$q      = "SELECT U.username, U.fname, U.lname FROM `" . TBL_USERS . "` AS U WHERE U.big = '" . $req_user_info['username'] . "' ORDER BY U.lname";
-	$result = $database->query($q);
-	if (mysql_num_rows($result) > 0) {
-		echo "<li><strong>Little(s)</strong>: <br /><ul class=\"inline\">";
-		if ($isTransfer) {
-			for ($i = 0; $i < count($req_transfer_info["little"]); $i++) {
-				echo "<li>" . $req_transfer_info["little"][$i] . "</li>";
-			}
-		}
-		while ($row = mysql_fetch_array($result)) {
-			echo "<li><a href=\"?user=" . $row['username'] . "\">" . $row['fname'] . " " . $row['lname'] . "</a></li>";
-		} //$row = mysql_fetch_array($result)
-		echo "</ul></li>\n";
-	} //mysql_num_rows($result) > 0
-	echo "</ul>\n"; 
-
+// 	$q      = "SELECT U.username, U.fname, U.lname FROM `" . TBL_USERS . "` AS U WHERE U.big = '" . $req_user_info['username'] . "' ORDER BY U.lname";
+// 	$result = $database->query($q);
+// 	if (mysql_num_rows($result) > 0) {
+// 		echo "<li><strong>Little(s)</strong>: <br /><ul class=\"inline\">";
+// 		if ($isTransfer) {
+// 			for ($i = 0; $i < count($req_transfer_info["little"]); $i++) {
+// 				echo "<li>" . $req_transfer_info["little"][$i] . "</li>";
+// 			}
+// 		}
+// 		while ($row = mysql_fetch_array($result)) {
+// 			echo "<li><a href=\"?user=" . $row['username'] . "\">" . $row['fname'] . " " . $row['lname'] . "</a></li>";
+// 		} //$row = mysql_fetch_array($result)
+// 		echo "</ul></li>\n";
+// 	} //mysql_num_rows($result) > 0
+// 	echo "</ul>\n"; 
+	
+//end comment for family line
+	
 	/* If logged in user viewing own account or Officer, show private info */
 	if (strcmp($session->username, $req_user) == 0 || $session->isOfficer()) {
 		echo "<h3>Private Info</h3>\n";
